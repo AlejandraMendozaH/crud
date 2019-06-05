@@ -3,7 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 
 import indexRouter from './routes/IndexRouter';
-
+import contactoRouter from './routes/ContactoRouter';
 class Server {
 
     app: Application;
@@ -28,6 +28,7 @@ class Server {
     setRouters(): void {
 
         this.app.use('/', indexRouter);
+        this.app.use('/api/contacto', contactoRouter);
 
     }
 

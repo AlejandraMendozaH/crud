@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const IndexRouter_1 = __importDefault(require("./routes/IndexRouter"));
+const ContactoRouter_1 = __importDefault(require("./routes/ContactoRouter"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -21,6 +22,7 @@ class Server {
     }
     setRouters() {
         this.app.use('/', IndexRouter_1.default);
+        this.app.use('/api/contacto', ContactoRouter_1.default);
     }
     start() {
         this.app.listen(this.port, () => {
