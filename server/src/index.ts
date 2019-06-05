@@ -23,6 +23,7 @@ class Server {
 
         this.app.use(morgan('dev'));
         this.app.use(cors());
+        this.app.use(express.json());
     }
 
     setRouters(): void {
