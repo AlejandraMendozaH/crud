@@ -1,4 +1,4 @@
-import express, { Application, Response } from 'express';
+import express, { Application } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 
@@ -12,14 +12,8 @@ class Server {
     constructor() {
         this.app = express();
         this.setConfig();
-        //this.setRouters();
+        this.setRouters();
 
-
-        this.app.use('/', (resp: Response) => {
-
-            resp.json({ text: 'wee' });
-
-        });
     }
 
     setConfig(): void {
@@ -33,9 +27,7 @@ class Server {
 
     setRouters(): void {
 
-        this.app.use('/', (resp: Response) =>
-            resp.json({ text: 'You are in home' })
-        );
+        this.app.use('/', indexRouter);
 
     }
 
