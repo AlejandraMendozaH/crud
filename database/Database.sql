@@ -12,5 +12,6 @@ CREATE TABLE contacto(
     direccion VARCHAR(80),
     telefono CHAR(20),
     e_mail VARCHAR(80),
+    photo VARCHAR(200),
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

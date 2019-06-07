@@ -1,11 +1,11 @@
-<div class="col-sm-4" *ngFor='let contacto of contactos'>
+<div class="col-md-4" *ngFor='let contacto of contactos'>
 
 
   <div class="card text-center">
 
     <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
       {{contacto.nombre}} {{contacto.a_paterno}}
-      <button class="btn btn-danger">
+      <button class="btn btn-danger" (click)="delete(contacto.id)">
         <i class="far fa-trash-alt"></i>
       </button>
     </div>
@@ -13,9 +13,11 @@
 
     <div class="card-body">
 
-      <img src="{{contacto.photo}}" alt="" width="300" height="390">
+      <img [src]="contacto.photo" alt="" width="300" height="390">
 
       <p>{{contacto.e_mail}}</p>
+
+      <a href="" class="btn btn-info btn-block">EDIT CONTACT</a>
     </div>
 
   </div>

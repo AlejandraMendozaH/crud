@@ -4,10 +4,8 @@
 
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Contactos <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Agregar Contacto</a>
-
-
+      <a class="nav-item nav-link active" [routerLink]="['contacto']">Contactos <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" [routerLink]="['contacto/add']">Agregar Contacto</a>
     </div>
   </div>
 </nav>

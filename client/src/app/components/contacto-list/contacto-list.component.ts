@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { ContactosService } from '../../services/contactos.service';
 import { Contacto } from 'src/app/models/Contacto';
 
@@ -10,9 +10,10 @@ import { Contacto } from 'src/app/models/Contacto';
 
 export class ContactoListComponent implements OnInit {
 
-  // Definición de arreglo de tipo Contacto
-  contactos: Contacto = [];
+  @HostBinding('class') classes = 'row';
 
+  // Definición de arreglo de tipo Contacto
+  contactos: any = [];
 
   constructor(private contactoService: ContactosService) { }
 
@@ -25,6 +26,13 @@ export class ContactoListComponent implements OnInit {
       },
       err => console.error(err)
     );
+  }
+
+
+  delete(id: string) {
+
+    console.log(id);
+
   }
 
 }
