@@ -7,6 +7,12 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ContactoFormComponent } from './components/contacto-form/contacto-form.component';
 import { ContactoListComponent } from './components/contacto-list/contacto-list.component';
 
+// Se importa ContactosService para traer los datos del RESTAPI
+import { ContactosService } from './services/contactos.service'
+
+// Importar modulo para utilizar operaciones http
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +22,8 @@ import { ContactoListComponent } from './components/contacto-list/contacto-list.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
