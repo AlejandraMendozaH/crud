@@ -33,7 +33,7 @@ export class ContactosService {
 
   }
 
-  update(id: string, contacto: Contacto): Observable<Contacto> {
+  update(id: string | number, contacto: Contacto): Observable<Contacto> {
     return this.http.put(`${this.API_URI}/contacto/${id}`, contacto);
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Contacto } from 'src/app/models/Contacto';
 import { ContactosService } from '../../services/contactos.service';
-
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contacto-form',
@@ -26,11 +26,35 @@ export class ContactoFormComponent implements OnInit {
 
   };
 
-  constructor(private contactoService: ContactosService) {
+  edit: boolean = false;
+
+
+  constructor(private contactoService: ContactosService, private router: Router, private activatedRoute: ActivatedRoute) {
 
   }
 
   ngOnInit() {
+    const params = this.activatedRoute.snapshot.params;
+
+    if (params.id) {
+      this.contactoService.get(params.id)
+        .subscribe(
+
+          res => {
+            console.log(res);
+            this.contacto = res;
+
+            this.edit = true;
+
+          },
+          err => {
+            console.error(err);
+          }
+
+        );
+    }
+
+
   }
 
   save() {
@@ -43,6 +67,7 @@ export class ContactoFormComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
+          this.router.navigate(['/contacto']);
         },
         err => {
           console.error(err);
@@ -51,5 +76,22 @@ export class ContactoFormComponent implements OnInit {
 
   }
 
+
+  update() {
+    delete this.contacto.fecha_registro;
+
+    this.contactoService.update(this.contacto.id, this.contacto)
+      .subscribe(
+        res => {
+          this.contacto = res;
+          this.router.navigate(['/contacto']);
+        },
+        err => { 
+          console.error(err);
+        }
+
+
+      );
+  }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { ContactosService } from '../../services/contactos.service';
-import { Contacto } from 'src/app/models/Contacto';
+
+
 
 @Component({
   selector: 'app-contacto-list',
@@ -18,6 +19,10 @@ export class ContactoListComponent implements OnInit {
   constructor(private contactoService: ContactosService) { }
 
   ngOnInit() {
+    this.get();
+  }
+
+  get() {
 
     this.contactoService.list().subscribe(
       res => {
@@ -31,8 +36,18 @@ export class ContactoListComponent implements OnInit {
 
   delete(id: string) {
 
-    console.log(id);
+    this.contactoService.delete(id).subscribe(
+      res => {
+        console.log(res);
+        this.get();
+      },
+      err => {
+        console.error(err);
+      }
+    );
+
 
   }
+
 
 }

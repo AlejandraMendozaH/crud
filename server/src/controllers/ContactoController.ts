@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import cnn from '../dbconfig/ConexionDB';
 
-
 class ContactoController {
 
     // Obtiene un listado de todos los registros de la tabla

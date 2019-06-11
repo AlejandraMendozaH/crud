@@ -7,7 +7,8 @@ import { ContactoFormComponent } from './components/contacto-form/contacto-form.
 const routes: Routes = [
   { path: '', redirectTo: '/contacto', pathMatch: 'full' },
   { path: 'contacto', component: ContactoListComponent },
-  { path: 'contacto/add', component: ContactoFormComponent }
+  { path: 'contacto/add', component: ContactoFormComponent },
+  { path: 'contacto/edit/:id', component:ContactoFormComponent}
 ];
 
 @NgModule({
